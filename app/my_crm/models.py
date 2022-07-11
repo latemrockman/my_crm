@@ -25,7 +25,7 @@ class Clients(models.Model):
     client_id = models.IntegerField()
     title = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
-    status_sales = models.CharField(max_length=50)
+    status_sales = models.ForeignKey(Stages, on_delete=models.PROTECT, null=True)
     status_competitors = models.CharField(max_length=50)
     additionally = models.TextField(max_length=500)
 
