@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Stages, Clients
+from .models import Stages, Clients, MatStatus
 
 # Register your models here.
 
@@ -7,11 +7,17 @@ from .models import Stages, Clients
 @admin.register(Stages)
 class StagesAdmin(admin.ModelAdmin):
     list_display = ['title']
-    fields = ['title', 'color', 'slug']
+    fields = ['title', 'color']
+
+@admin.register(MatStatus)
+class MatStatusAdmin(admin.ModelAdmin):
+    list_display = ['title']
+    fields = ['title']
+
 
 @admin.register(Clients)
 class ClientsAdmin(admin.ModelAdmin):
-    list_display = ['client_id', 'title', 'address', 'status_sales', 'status_competitors', 'additionally']
-    fields = ['client_id', 'title', 'address', 'status_sales', 'status_competitors', 'additionally']
+    list_display = ['client_id', 'title', 'address', 'stage_status', 'mat_status', 'additionally']
+    fields = ['client_id', 'title', 'address', 'stage_status', 'mat_status', 'additionally']
 
 
