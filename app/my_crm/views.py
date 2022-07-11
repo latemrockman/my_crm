@@ -5,8 +5,10 @@ from .models import Stages
 
 
 def index(request):
-    stages = Stages.objects.all()
-    return render(request, 'my_crm/index.html', {'stages': stages})
+    for st in Stages.objects.all():
+        st.save()
+
+    return render(request, 'my_crm/index.html', {})
 
 def stage(request, stage_slug):
     return render(request, 'my_crm/index.html', {})

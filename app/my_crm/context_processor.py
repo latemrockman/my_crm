@@ -4,6 +4,6 @@ from my_crm.models import Stages
 
 def my_context(request):
     context = {
-        'all_stages': Stages.objects.all()
+        'all_stages': Stages.objects.order_by('-id')
     }
     return context

@@ -7,6 +7,6 @@ from .models import Stages
 @admin.register(Stages)
 class StagesAdmin(admin.ModelAdmin):
     list_display = ['title']
-    fields = ['title', 'color']
+    fields = ['title', 'color', 'slug']
 
 
