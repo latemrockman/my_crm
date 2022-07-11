@@ -21,4 +21,14 @@ class Stages(models.Model):
         self.slug = slugify(text2translit(self.title))
         super(Stages, self).save(*args, **kwargs)
 
+class Clients(models.Model):
+    client_id = models.IntegerField()
+    title = models.CharField(max_length=50)
+    address = models.CharField(max_length=150)
+    status_sales = models.CharField(max_length=50)
+    status_competitors = models.CharField(max_length=50)
+    additionally = models.TextField(max_length=500)
 
+    class Meta:
+        verbose_name = 'Клиент'
+        verbose_name_plural = 'Клиенты'

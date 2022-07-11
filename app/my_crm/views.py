@@ -19,3 +19,6 @@ def settings(request):
 
 def statistics(request):
     return render(request, 'my_crm/statistics.html', {})
+
+def calendar(request):
+    return render(request, 'my_crm/calendar.html', {})
