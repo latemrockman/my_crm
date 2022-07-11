@@ -5,4 +5,9 @@
 
 {% block content %}
 <h1>Страница с клиентами</h1>
+
+{% for stage in stages %}
+    <a href="">{{stage.title}}</a> <br>
+{% endfor %}
+
 {% endblock %}
