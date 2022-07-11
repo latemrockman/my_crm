@@ -5,13 +5,11 @@ from .models import Stages
 
 
 def index(request):
-    for st in Stages.objects.all():
-        st.save()
-
     return render(request, 'my_crm/index.html', {})
 
 def stage(request, stage_slug):
-    return render(request, 'my_crm/index.html', {})
+    title_page = Stages.objects.get(slug=stage_slug).title
+    return render(request, 'my_crm/index.html', {'title_page': title_page})
 
 def client(request):
     return render(request, 'my_crm/client.html', {})

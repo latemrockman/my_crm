@@ -4,8 +4,19 @@
 {% block title %}Страница с клиентами{% endblock %}
 
 {% block content %}
-<h1>Страница с клиентами</h1>
 
+
+
+
+
+
+
+
+{% if title_page %}
+    <h1>{{title_page}}</h1>
+{% else %}
+    <h1>Страница с клиентами</h1>
+{% endif %}
 
 
 {% endblock %}

@@ -13,7 +13,7 @@
 <a href="{% url 'index-page' %}">Все</a><br><br>
 {% for stage in all_stages %}
     <color style="background-color:{{stage.color}}">__</color>
-    <a href="">{{stage.title}}</a><br>
+    <a href="{% url 'stage-page' stage.slug %}">{{stage.title}}</a><br>
 {% endfor %}
 
 <br>
