@@ -21,7 +21,8 @@ class Stages(models.Model):
         self.slug = slugify(text2translit(self.title))
         super(Stages, self).save(*args, **kwargs)
 
-
+    def get_len_clients(self):
+        return 'HELLO'
 
 class MatStatus(models.Model):
     title = models.CharField(max_length=50)

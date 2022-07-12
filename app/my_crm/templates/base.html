@@ -5,6 +5,7 @@
     <title>{% block title %}{% endblock %}</title>
 
     {% load static %}
+    {% load my_filter %}
     <link rel="stylesheet" href="{% static 'my_crm/css/style.css' %}">
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -15,10 +16,10 @@
 </head>
 <body>
 <color style="background-color:#3465A4">__</color>
-<a href="{% url 'index-page' %}">Все (7)</a><br><br>
+<a href="{% url 'index-page' %}">Все ({{all_clients|length}})</a><br><br>
 {% for stage in all_stages %}
     <color style="background-color:{{stage.color}}">__</color>
-    <a href="{% url 'stage-page' stage.slug %}">{{stage.title}} (3)</a><br>
+    <a href="{% url 'stage-page' stage.slug %}">{{stage.title}} ({{all_clients|stage_filter:stage|length}})</a><br>
 {% endfor %}
 
 <br>
@@ -26,6 +27,7 @@
 <a href="{% url 'settings-page' %}">Настройки</a><br>
 <a href="{% url 'statistics-page' %}">Статистика</a><br>
 <a href="{% url 'calendar-page' %}">Календарь</a><br>
+<a href="{% url 'calendar-page' %}">Карта</a><br>
 <a href="">Создать договор</a><br>
 <hr>
 
@@ -37,8 +39,6 @@
     {% endblock %}
 </content>
 <footer></footer>
-
-
 
 
 
