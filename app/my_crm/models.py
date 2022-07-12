@@ -59,6 +59,11 @@ class Clients(models.Model):
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
 
+
+    def __str__(self):
+        return self.title
+
+
     def save(self, *args, **kwargs):
         self.client_id = str(Clients.objects.order_by('-id')[0].id+1)
         self.client_id = f'{self.client_id:0>5}'

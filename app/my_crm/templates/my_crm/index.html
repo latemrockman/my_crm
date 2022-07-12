@@ -5,18 +5,22 @@
 
 {% block content %}
 
-
-
-
-
-
-
-
 {% if title_page %}
     <h1>{{title_page}}</h1>
 {% else %}
     <h1>Страница с клиентами</h1>
 {% endif %}
+
+
+
+{% for client in all_clients %}
+    <a href="">{{client.stage_status}}</a> |
+    <a href="">{{client.client_id}}</a> |
+    <a href="">{{client.title}}</a> |
+    <a href="">{{client.address}}</a> |
+    <a href="">{{client.mat_status}}</a> |
+    <a href="">{{client.title}}</a> | <br>
+{% endfor %}
 
 
 {% endblock %}
