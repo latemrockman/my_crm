@@ -18,6 +18,6 @@ class MatStatusAdmin(admin.ModelAdmin):
 @admin.register(Clients)
 class ClientsAdmin(admin.ModelAdmin):
     list_display = ['client_id', 'title', 'address', 'stage_status', 'mat_status', 'additionally']
-    fields = ['client_id', 'title', 'address', 'stage_status', 'mat_status', 'additionally']
+    fields = ['title', 'address', 'stage_status', 'mat_status', 'additionally']
 
 

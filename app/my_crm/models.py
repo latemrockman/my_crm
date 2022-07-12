@@ -47,15 +47,23 @@ class MatStatus(models.Model):
 
 
 class Clients(models.Model):
-    client_id = models.IntegerField()
+    client_id = models.CharField(max_length=10)
     title = models.CharField(max_length=50)
     address = models.CharField(max_length=150)
     stage_status = models.ForeignKey(Stages, on_delete=models.PROTECT, null=True)
     mat_status = models.ForeignKey(MatStatus, on_delete=models.PROTECT, null=True)
     additionally = models.TextField(max_length=500)
+    slug = models.SlugField(default='', null=False, db_index=True)
 
     class Meta:
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
+
+    def save(self, *args, **kwargs):
+        self.client_id = str(Clients.objects.order_by('-id')[0].id+1)
+        self.client_id = f'{self.client_id:0>5}'
+
+        self.slug = slugify(f'{self.client_id}_{text2translit(self.title)}')
+        super(Clients, self).save(*args, **kwargs)
 
 
