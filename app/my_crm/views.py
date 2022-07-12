@@ -11,7 +11,17 @@ def index(request):
 
 def stage(request, stage_slug):
     title_page = Stages.objects.get(slug=stage_slug).title
-    return render(request, 'my_crm/index.html', {'title_page': title_page})
+    ss = Stages.objects.get(title=title_page)
+
+    compilation = Clients.objects.filter(stage_status=ss)
+
+    context = {
+        'title_page': title_page,
+        'compilation': compilation,
+        'ss': ss
+    }
+
+    return render(request, 'my_crm/index.html', context)
 
 def client(request, client_slug):
     client =Clients.objects.get(slug=client_slug)

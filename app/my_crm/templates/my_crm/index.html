@@ -7,13 +7,8 @@
 
 {% if title_page %}
     <h1>{{title_page}}</h1>
-{% else %}
-    <h1>Страница с клиентами</h1>
-{% endif %}
 
-
-
-{% for client in all_clients %}
+{% for client in compilation %}
     <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
     <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
     <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
@@ -21,6 +16,77 @@
     <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
     <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
 {% endfor %}
+
+
+{% else %}
+    <h1>Страница с клиентами</h1>
+
+
+{% for client in compilation_new%}
+    <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.address}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
+{% endfor %}
+
+{% for client in compilation_kp %}
+    <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.address}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
+{% endfor %}
+
+{% for client in compilation_wait_requisites %}
+    <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.address}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
+{% endfor %}
+
+{% for client in compilation_wait_contract %}
+    <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.address}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
+{% endfor %}
+
+{% for client in compilation_finish %}
+    <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.address}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
+{% endfor %}
+
+{% for client in compilation_cancel %}
+    <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.address}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
+{% endfor %}
+
+{% endif %}
+
+
+
+
+
+<hr>
+
+
+
+
 
 
 {% endblock %}

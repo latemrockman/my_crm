@@ -15,10 +15,10 @@
 </head>
 <body>
 <color style="background-color:#3465A4">__</color>
-<a href="{% url 'index-page' %}">Все</a><br><br>
+<a href="{% url 'index-page' %}">Все (7)</a><br><br>
 {% for stage in all_stages %}
     <color style="background-color:{{stage.color}}">__</color>
-    <a href="{% url 'stage-page' stage.slug %}">{{stage.title}}</a><br>
+    <a href="{% url 'stage-page' stage.slug %}">{{stage.title}} (3)</a><br>
 {% endfor %}
 
 <br>
