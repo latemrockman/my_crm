@@ -4,5 +4,13 @@
 {% block title %}Карточка клиента{% endblock %}
 
 {% block content %}
-<h1>Карточка клиента</h1>
+<h1>Карточка клиента {{client.title}}</h1>
+
+<b>Статус: </b> {{client.stage_status}} <br>
+<b>ID: </b> {{client.client_id}} <br>
+<b>Адрес: </b> {{client.address}} <br>
+<b>Название: </b> {{client.title}} <br>
+<b>Статус по коврам: </b> {{client.mat_status}} <br>
+<b>Дополнительная информация: </b> {{client.additionally}} <br>
+
 {% endblock %}

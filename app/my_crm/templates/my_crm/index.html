@@ -14,12 +14,12 @@
 
 
 {% for client in all_clients %}
-    <a href="">{{client.stage_status}}</a> |
-    <a href="">{{client.client_id}}</a> |
-    <a href="">{{client.title}}</a> |
-    <a href="">{{client.address}}</a> |
-    <a href="">{{client.mat_status}}</a> |
-    <a href="">{{client.title}}</a> | <br>
+    <a href="{% url 'client-page' client.slug  %}">{{client.stage_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.client_id}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.address}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.mat_status}}</a> |
+    <a href="{% url 'client-page' client.slug  %}">{{client.title}}</a> | <br>
 {% endfor %}
 
 

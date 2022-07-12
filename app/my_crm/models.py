@@ -55,6 +55,7 @@ class Clients(models.Model):
     additionally = models.TextField(max_length=500)
     slug = models.SlugField(default='', null=False, db_index=True)
 
+
     class Meta:
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
@@ -65,10 +66,14 @@ class Clients(models.Model):
 
 
     def save(self, *args, **kwargs):
-        self.client_id = str(Clients.objects.order_by('-id')[0].id+1)
-        self.client_id = f'{self.client_id:0>5}'
-
-        self.slug = slugify(f'{self.client_id}_{text2translit(self.title)}')
+        #if Clients.objects.all():
+        #    self.client_id = str(Clients.objects.order_by('-id')[0].id+1)
+        #    self.client_id = f'{self.client_id:0>5}'
+        #else:
+        #    self.client_id = '00001'
+#
+      # #self.slug = slugify(f'{self.client_id}_{text2translit(self.title)}')
+      # #super(Clients, self).save(*args, **kwargs)
+#
+        self.slug = slugify(text2translit(self.title))
         super(Clients, self).save(*args, **kwargs)
-
-
